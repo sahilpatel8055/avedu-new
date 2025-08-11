@@ -52,7 +52,7 @@ const UniversitySlideshow = () => {
             <img
               src={slide.image}
               alt={slide.alt}
-              className="w-full h-full object-contain bg-gradient-primary"
+              className="w-full h-full object-cover"
             />
           </div>
         ))}
