@@ -133,7 +133,7 @@ const MobileStickyNav = ({ sections, className }: MobileStickyNavProps) => {
       "block md:hidden", // Only show on mobile
       className
     )}>
-      <div className="bg-white/95 backdrop-blur-md rounded-full shadow-lg border border-gray-200 overflow-hidden">
+      <div className="bg-[#fff1f1] backdrop-blur-md rounded-full shadow-lg border border-gray-200 overflow-hidden">
         <div className="relative flex items-center">
           {/* Left scroll arrow */}
           {canScrollLeft && (
