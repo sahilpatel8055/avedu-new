@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { ChevronDown, Menu } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface NavItem {
   id: string;
@@ -15,7 +15,6 @@ interface MobileStickyNavProps {
 const MobileStickyNav = ({ sections, className }: MobileStickyNavProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,59 +52,47 @@ const MobileStickyNav = ({ sections, className }: MobileStickyNavProps) => {
         behavior: "smooth",
       });
     }
-    setIsMenuOpen(false);
   };
 
   if (!isVisible) return null;
 
   return (
     <div className={cn(
-      "fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm",
+      "fixed top-0 left-0 right-0 z-50 bg-white shadow-md border-b border-gray-100",
       "block md:hidden", // Only show on mobile
       className
     )}>
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-12">
-          <div className="flex items-center gap-2">
-            <Menu className="w-4 h-4 text-gray-600" />
-            <span className="text-sm font-medium text-gray-900">Quick Navigation</span>
-          </div>
-          
-          <div className="relative">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors"
-            >
-              <span className="max-w-32 truncate">
-                {sections.find(s => s.id === activeSection)?.label || "Select Section"}
-              </span>
-              <ChevronDown className={cn(
-                "w-4 h-4 transition-transform",
-                isMenuOpen && "rotate-180"
-              )} />
-            </button>
-
-            {isMenuOpen && (
-              <div className="absolute right-0 top-full mt-1 w-48 bg-white rounded-md shadow-lg border border-gray-200 py-1 z-10">
-                {sections.map((section) => (
-                  <button
-                    key={section.id}
-                    onClick={() => scrollToSection(section.id)}
-                    className={cn(
-                      "w-full text-left px-4 py-2 text-sm hover:bg-gray-100 transition-colors",
-                      activeSection === section.id && "bg-primary/10 text-primary font-medium"
-                    )}
-                  >
-                    {section.label}
-                  </button>
-                ))}
-              </div>
-            )}
+      <div className="relative">
+        {/* Scrollable navigation container */}
+        <div className="overflow-x-auto scrollbar-hide">
+          <div className="flex items-center min-w-max px-4 py-3">
+            {sections.map((section, index) => (
+              <button
+                key={section.id}
+                onClick={() => scrollToSection(section.id)}
+                className={cn(
+                  "relative px-4 py-2 text-sm font-medium transition-all duration-300 whitespace-nowrap",
+                  "border-b-2 border-transparent",
+                  activeSection === section.id
+                    ? "text-orange-600 border-orange-500 bg-orange-50"
+                    : "text-gray-600 hover:text-orange-500 hover:bg-orange-50/50",
+                  index !== sections.length - 1 && "mr-1"
+                )}
+              >
+                <span className="relative z-10">{section.label}</span>
+                {activeSection === section.id && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-100 to-orange-50 rounded-t-md -z-0" />
+                )}
+              </button>
+            ))}
           </div>
         </div>
+
+        {/* Gradient fade indicators for scrollable content */}
+        <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-white to-transparent pointer-events-none" />
       </div>
     </div>
   );
 };
-
 export default MobileStickyNav;
