@@ -7,6 +7,7 @@ import { CheckCircle, GraduationCap, Clock, IndianRupee, Users, Award, BookOpen,
 import NavigationHeader from "@/components/ui/navigation-header";
 import Footer from "@/components/ui/footer";
 import CounsellingSection from "@/components/ui/counselling-section";
+import MobileStickyNav from "@/components/ui/mobile-sticky-nav";
 import courseData from "../../data/courseData.json";
 
 // Mapping of icon names to components for dynamic rendering
@@ -22,6 +23,17 @@ const CoursePage = () => {
   const { courseId } = useParams();
   const course = courseId ? courseData[courseId] : null;
 
+  // Navigation sections for mobile sticky nav
+  const navSections = [
+    { id: "hero", label: "Overview" },
+    ...(course?.degreeImage ? [{ id: "degree", label: "Sample Degree" }] : []),
+    ...(course?.highlights?.length ? [{ id: "highlights", label: "Program Highlights" }] : []),
+    { id: "eligibility", label: "Eligibility & Fees" },
+    ...(course?.specialisations?.length ? [{ id: "specializations", label: "Specializations" }] : []),
+    ...(course?.keyFeatures?.length ? [{ id: "features", label: "Key Features" }] : []),
+    { id: "cta", label: "Apply Now" }
+  ];
+
   if (!course) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -33,9 +45,10 @@ const CoursePage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <NavigationHeader />
+      <MobileStickyNav sections={navSections} />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-600 py-16 text-white">
+      <section className="bg-gradient-to-r from-blue-600 to-indigo-600 py-16 text-white" id="hero">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -86,7 +99,7 @@ const CoursePage = () => {
 
       {/* Sample Degree Section */}
       {course.degreeImage && (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" id="degree">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-800 mb-4">Sample IGNOU Degree Certificate</h2>
@@ -108,7 +121,7 @@ const CoursePage = () => {
 
       {/* Program Highlights */}
       {course.highlights && course.highlights.length > 0 && (
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-gray-50" id="highlights">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-800 mb-4">IGNOU {course.name} Program Highlights</h2>
@@ -132,7 +145,7 @@ const CoursePage = () => {
       )}
 
       {/* Eligibility & Fee Structure */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white" id="eligibility">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <Card className="p-8">
@@ -183,7 +196,7 @@ const CoursePage = () => {
 
       {/* Specializations */}
       {course.specialisations && course.specialisations.length > 0 && (
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-gray-50" id="specializations">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-800 mb-4">{course.name} Specializations Available</h2>
@@ -209,7 +222,7 @@ const CoursePage = () => {
 
       {/* Key Features */}
       {course.keyFeatures && course.keyFeatures.length > 0 && (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" id="features">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-800 mb-4">Why {course.name} Stands Out</h2>
@@ -234,7 +247,7 @@ const CoursePage = () => {
       )}
 
       {/* Call to Action */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-600 py-16 text-white">
+      <section className="bg-gradient-to-r from-blue-600 to-indigo-600 py-16 text-white" id="cta">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Career?</h2>
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">

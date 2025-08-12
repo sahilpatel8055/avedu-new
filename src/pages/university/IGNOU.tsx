@@ -41,12 +41,21 @@ import baImg from "@/assets/course/ba.jpg";
 import bcomImg from "@/assets/course/bcom.jpg";
 
 import { MovingBorderButton } from "@/components/ui/moving-border";
+import MobileStickyNav from "@/components/ui/mobile-sticky-nav";
 
 const IGNOU = () => {
   const { openForm, CounselingFormComponent } = useCounselingForm();
   
-  // We will now use the courseData object directly for rendering
-  // const courses = [...] is no longer needed
+  // Navigation sections for mobile sticky nav
+  const navSections = [
+    { id: "hero", label: "Overview" },
+    { id: "about", label: "About IGNOU" },
+    { id: "approvals", label: "Approvals" },
+    { id: "degree", label: "Sample Degree" },
+    { id: "courses", label: "Popular Courses" },
+    { id: "features", label: "Why Choose" },
+    { id: "cta", label: "Apply Now" }
+  ];
 
   const features = [
     "42 different online courses available",
@@ -71,9 +80,10 @@ const IGNOU = () => {
   return (
     <div className="min-h-screen bg-background">
       <NavigationHeader />
+      <MobileStickyNav sections={navSections} />
       
       {/* Hero Section with Moving Border Buttons */}
-      <section className="bg-gradient-to-br from-primary/10 via-background to-primary/5 py-6" id="top">
+      <section className="bg-gradient-to-br from-primary/10 via-background to-primary/5 py-6" id="hero">
         <div className="container mx-auto px-4">
           {/* Slideshow at top of section */}
           <div className="mb-8">
@@ -142,7 +152,7 @@ const IGNOU = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-16">
+      <section className="py-16" id="about">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-8">About IGNOU</h2>
@@ -162,7 +172,7 @@ const IGNOU = () => {
       </section>
 
       {/* Approvals Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-muted/30" id="approvals">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Approvals & Accreditations</h2>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -184,7 +194,7 @@ const IGNOU = () => {
       </section>
       
       {/* Sample Degree Section (Moved) */}
-      <section className="py-16 bg-gradient-to-br from-primary/5 to-background">
+      <section className="py-16 bg-gradient-to-br from-primary/5 to-background" id="degree">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-12">
             {/* Left side: Description */}
@@ -232,7 +242,7 @@ const IGNOU = () => {
       </section>
 
       {/* Courses Section */}
-      <section className="py-16">
+      <section className="py-16" id="courses">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Popular Courses</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
@@ -281,7 +291,7 @@ const IGNOU = () => {
       </section>
 
       {/* Features Section - Changed background to sunny yellow */}
-      <section className="py-16 bg-yellow-400">
+      <section className="py-16 bg-yellow-400" id="features">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Why Choose IGNOU?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -296,7 +306,7 @@ const IGNOU = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary/10">
+      <section className="py-16 bg-primary/10" id="cta">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Start Your Educational Journey?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
