@@ -5,15 +5,15 @@
       "name": "Online MBA",
       "level": "pg",
       "university": "Amity University",
-      "fees": "₹1,80,000",
+      "fees": "₹1,99,000",
       "duration": "2 Years",
       "specializationsCount": 8,
       "rating": 4.6,
       "reviews": 13500,
       "feesBreakdown": {
-        "fullFees": "INR 1,80,000",
-        "perSemester": "INR 45,000",
-        "emi": "INR 7,500/Month"
+        "fullFees": "INR 1,99,000",
+        "perSemester": "INR 49,750",
+        "emi": "INR 8,292/Month"
       },
       "curriculum": [
         {
@@ -54,7 +54,16 @@
         "IT & FinTech",
         "Finance",
         "Human Resource Management",
-        "BFSI",
+        "Digital Entrepreneurship",
+        "Data Science",
+        "Business Analytics",
+        "International Finance(ACCA)",
+        "Insurance Management",
+        "General Management",
+        "Hospitality Management",
+        "Global Finance Market",
+        "Entrepreneurship and Leadership Management",
+        "Retail Management",
         "Operations Management"
       ]
     },
@@ -63,15 +72,15 @@
       "name": "Online BCA",
       "level": "ug",
       "university": "Amity University",
-      "fees": "₹1,40,000",
+      "fees": "₹1,50,000",
       "duration": "3 Years",
-      "specializationsCount": 3,
+      "specializationsCount": 4,
       "rating": 4.5,
       "reviews": 12000,
       "feesBreakdown": {
-        "fullFees": "INR 1,40,000",
-        "perSemester": "INR 23,333",
-        "emi": "INR 1,944/Month"
+        "fullFees": "INR 1,50,000",
+        "perSemester": "INR 25,000",
+        "emi": "INR 6,250/Month"
       },
       "curriculum": [
         {
@@ -117,7 +126,8 @@
       "specializations": [
         "Data Science",
         "Cloud Computing",
-        "Cyber Security"
+        "Software Engineering",
+        "Data Engineering"
       ]
     },
     {
@@ -125,15 +135,15 @@
       "name": "Online BBA",
       "level": "ug",
       "university": "Amity University",
-      "fees": "₹1,40,000",
+      "fees": "₹1,65,000",
       "duration": "3 Years",
       "specializationsCount": 6,
       "rating": 4.7,
       "reviews": 16000,
       "feesBreakdown": {
-        "fullFees": "INR 1,40,000",
-        "perSemester": "INR 23,333",
-        "emi": "INR 1,944/Month"
+        "fullFees": "INR 1,65,000",
+        "perSemester": "INR 27,500",
+        "emi": "INR 6,875/Month"
       },
       "curriculum": [
         {
