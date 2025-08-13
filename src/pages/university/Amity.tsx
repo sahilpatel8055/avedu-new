@@ -31,11 +31,11 @@ const Amity = () => {
   
   const courses = [
     { name: "Online MBA", id: "online-mba", fees: "₹1,99,000", duration: "2 Years", specializations: 12, image: mbaImg },
-    { name: "Online BBA", id: "online-bba", fees: "₹1,50,000", duration: "3 Years", specializations: 8, image: bbaImg },
-    { name: "Online MCA", id: "online-mca", fees: "₹1,80,000", duration: "2 Years", specializations: 4, image: mcaImg },
-    { name: "Online BCA", id: "online-bca", fees: "₹1,20,000", duration: "3 Years", specializations: 6, image: bcaImg },
-    { name: "Online MA", id: "online-ma", fees: "₹80,000", duration: "2 Years", specializations: 5, image: baImg },
-    { name: "Online BA", id: "online-ba", fees: "₹60,000", duration: "3 Years", specializations: 7, image: baImg }
+    { name: "Online BBA", id: "online-bba", fees: "₹1,65,000", duration: "3 Years", specializations: 8, image: bbaImg },
+    { name: "Online MCA", id: "online-mca", fees: "₹1,70,000", duration: "2 Years", specializations: 4, image: mcaImg },
+    { name: "Online BCA", id: "online-bca", fees: "₹1,50,000", duration: "3 Years", specializations: 4, image: bcaImg },
+    { name: "Online MA", id: "online-ma", fees: "₹1,30,000", duration: "2 Years", specializations: 3, image: baImg },
+    { name: "Online BA", id: "online-ba", fees: "₹99,000", duration: "3 Years", specializations: 5, image: baImg }
   ];
 
   const features = [
