@@ -32,12 +32,12 @@ const Manipal = () => {
   const { openForm, CounselingFormComponent } = useCounselingForm();
   
   const courses = [
-    { name: "Online MBA", id: "online-mba", fees: "₹3,00,000", duration: "2 Years", specializations: 11, image: mbaImg },
-    { name: "Online MCA", id: "online-mca", fees: "₹2,40,000", duration: "2 Years", specializations: 4, image: mcaImg },
-    { name: "Online MA", id: "online-ma", fees: "₹1,80,000", duration: "2 Years", specializations: 4, image: baImg },
-    { name: "Online BBA", id: "online-bba", fees: "₹3,60,000", duration: "3 Years", specializations: 8, image: bbaImg },
-    { name: "Online BCA", id: "online-bca", fees: "₹3,00,000", duration: "3 Years", specializations: 5, image: bcaImg },
-    { name: "Online BA", id: "online-ba", fees: "₹2,40,000", duration: "3 Years", specializations: 6, image: baImg }
+    { name: "Online MBA", id: "online-mba", fees: "₹1,75,000", duration: "2 Years", specializations: 13, image: mbaImg },
+    { name: "Online MCA", id: "online-mca", fees: "₹1,58,000", duration: "2 Years", specializations: 5, image: mcaImg },
+    { name: "Online MA", id: "online-ma", fees: "₹75,000", duration: "2 Years", specializations: 3, image: baImg },
+    { name: "Online BBA", id: "online-bba", fees: "₹1,35,000", duration: "3 Years", specializations: 7, image: bbaImg },
+    { name: "Online BCA", id: "online-bca", fees: "₹1,35,000", duration: "3 Years", specializations: 3, image: bcaImg },
+    { name: "Online BA", id: "online-ba", fees: "₹75,000", duration: "3 Years", specializations: 3, image: baImg }
   ];
 
   const features = [
