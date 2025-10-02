@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 
-// Replace this with your Render backend URL after deployment
-const API_URL = import.meta.env.VITE_API_URL || "https://avedu-new.onrender.com";
+// Backend API URL for form submissions
+const API_URL = "https://avedu-new.onrender.com";
 
 interface CounselingFormDialogProps {
   open: boolean;
