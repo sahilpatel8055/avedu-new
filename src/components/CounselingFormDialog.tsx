@@ -1,5 +1,6 @@
 import { RefreshCw, X } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 
@@ -13,6 +14,7 @@ interface CounselingFormDialogProps {
 
 const CounselingFormDialog = ({ open, onOpenChange }: CounselingFormDialogProps) => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -107,24 +109,8 @@ const CounselingFormDialog = ({ open, onOpenChange }: CounselingFormDialogProps)
         throw new Error(data.error || 'Failed to submit form');
       }
 
-      toast({
-        title: "Success!",
-        description: "Your details have been submitted successfully",
-      });
-
-      setFormData({
-        fullName: "",
-        email: "",
-        mobile: "",
-        course: "",
-        state: "",
-        city: "",
-        areYou: "",
-        gender: "",
-        captcha: ""
-      });
-      
       onOpenChange(false);
+      navigate("/thankyou");
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
@@ -140,10 +126,10 @@ const CounselingFormDialog = ({ open, onOpenChange }: CounselingFormDialogProps)
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent 
-        className="max-w-[85vw] md:max-w-3xl p-0 gap-0 bg-transparent border-none overflow-hidden h-auto max-h-[90vh]"
+        className="max-w-[95vw] md:max-w-3xl p-0 gap-0 bg-transparent border-none overflow-hidden h-auto max-h-[95vh]"
         onInteractOutside={(e) => e.preventDefault()}
       >
-        <div className="flex flex-col md:flex-row h-full bg-white rounded-lg overflow-hidden w-full max-h-[90vh]">
+        <div className="flex flex-col md:flex-row h-full bg-white rounded-lg overflow-hidden w-full max-h-[95vh]">
           {/* Left side - Campus image (desktop only) */}
           <div className="hidden md:block md:w-1/2 relative min-h-[550px]">
             <img 
@@ -154,7 +140,7 @@ const CounselingFormDialog = ({ open, onOpenChange }: CounselingFormDialogProps)
           </div>
           
           {/* Right side - Form */}
-          <div className="w-full md:w-1/2 p-4 px-6 md:p-6 relative overflow-y-auto flex flex-col">
+          <div className="w-full md:w-1/2 p-6 md:p-6 relative overflow-y-auto flex flex-col">
             <button
               onClick={() => onOpenChange(false)}
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 z-10"
